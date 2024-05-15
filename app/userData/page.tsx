@@ -1,6 +1,7 @@
 "use client";
 
 import LabelledInput from "@/components/LabelledInput";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
@@ -15,7 +16,7 @@ export default function UserData() {
     const searchParams = useSearchParams();
 
     const saveToExcel = async () => {
-        let code = Math.ceil(Math.random() * 100000);
+        let code = Math.ceil(Math.random() * 1000000);
         let xtoken = `CAR/${branch}/PRM/${code}`;
         setToken(xtoken);
         let data = {
@@ -43,7 +44,16 @@ export default function UserData() {
     return (
         <>
             <div className='flex justify-between px-5 items-center'>
-                <div className='text-3xl' onClick={() => router.push("/")}>
+                <div
+                    className='text-3xl flex items-center'
+                    onClick={() => router.push("/")}
+                >
+                    <Image
+                        src={"/hsbc.png"}
+                        alt='logo'
+                        width={50}
+                        height={80}
+                    />
                     HSBC
                 </div>
                 <div className='flex'>
@@ -65,7 +75,7 @@ export default function UserData() {
             <div className=' flex justify-center'>
                 <div>
                     <LabelledInput
-                        label='UserName'
+                        label='Customer Name'
                         placeholder='Customer Name'
                         type='text'
                         setChange={setUsername}
