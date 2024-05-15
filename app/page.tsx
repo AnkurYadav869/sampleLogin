@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/Button";
-import LabelledInput from "@/components/LabelledInput";
 import { useState } from "react";
 export default function Signin() {
     const [username, setUsername] = useState("");
@@ -18,15 +17,26 @@ export default function Signin() {
                             </div>
                         </div>
                         <div className='pt-2'>
-                            <LabelledInput
-                                label='Username'
-                                placeholder='PSID'
-                                setChange={setUsername}
+                            <label className='block mb-2 text-sm text-black font-semibold pt-4'>
+                                PSID
+                            </label>
+                            <input
+                                type={"text"}
+                                id='first_name'
+                                className='bg-gray-50 border border-[#ff0006]-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+                                placeholder={"PSID"}
+                                required
+                                onChange={(e) => setUsername(e.target.value)}
                             />
-                            <LabelledInput
-                                label='Password'
+                            <label className='block mb-2 text-sm text-black font-semibold pt-4'>
+                                Password
+                            </label>
+                            <input
                                 type={"password"}
-                                placeholder='123456'
+                                id='first_name'
+                                className='bg-gray-50 border border-[#ff0006]-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+                                placeholder={"******"}
+                                required
                             />
                             <Button data={username} />
                         </div>
